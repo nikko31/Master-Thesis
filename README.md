@@ -1,4 +1,5 @@
-#Context-Based  Authentication  and  Lightweight  Group-Key Establishment Protocol for IoT Devices#
+# Master's Thesis
+## Context-Based  Authentication  and  Lightweight  Group-Key Establishment Protocol for IoT Devices
 
 The concept of the Internet of Things is driven by advancements of the Internet with the interconnection of heterogeneous smart objects using different networking and communication technologies. 
 With the rapidly increasing number of interconnected devices present in the life of a person, providing authentication and secure communication between them is considered a key challenge.
