@@ -1,0 +1,27 @@
+\chapter{Lightweight Group-Key Management}
+
+It is fundamental to ensure security in network services and applications of WSNs and efficient and lightweight key management has been identified as one of core mechanisms to solve this problem.
+In multicast group communications, the energy consumption, bandwidth and processing overhead at the nodes are minimized compared to a point-to-point communication system \cite{Rahman2015}. 
+The multicast communication protocol has to generate and distribute a secret group key that can be used to encrypt data sent from one source to all destinations that are member of the same group. 
+Multicast groups are often very dynamic due to the join and leave of the members, and for this reason the protocol has to handle such group membership changes by re-generating and re-distributing new group keys in a secure and efficient matter. 
+Group key management in WSN includes several processes and mechanisms to solve the problem of  establishing a secure links between the members of a group.
+This includes establishing (or creating), distributing and maintaining secret keys \cite{He2013JournalSurvey}.
+The key establishment techniques should guarantee the authenticity of all the sensor nodes involved in a particular communication and protect the disclosure of data to unauthorized parties (i.e., confidentiality) and from falsifications (i.e. integrity).
+Depending on the ability to update the cryptographic keys of sensor nodes during their run time (re-keying), these schemes can be classified into two different categories: static and dynamic.  
+In static key management, the principle of pre-shared key is adopted, and keys are fixed for the whole lifetime  of  the  network.  
+However, the probability for a cryptographic key to be attacked increases significantly with the time.  
+Instead, in dynamic key management, the cryptographic keys are refreshed  throughout the lifetime of the network.
+
+\section{Related Work}
+%%%%% EDIT
+This paper is based on a previous work presented in \cite{Gebremichael2018}.
+There are well studied group key establishment protocols in use today. As described in \cite{Steiner1996}and \cite{Bresson2007}, it is possible to extend the Diffie-Hellman protocol to a group of nodes and generate a one-time session key. However, it is not ideal for power and resources constrained devices due to the intensive use of computational power. Moreover,it has been demonstrated that \cite{Bresson2007} do not meet some security requirements \cite{Bohli2007}.
+
+A conference-key distribution system is proposed in \cite{Ingemarsson1982}. However it is demonstrated that the system is insecure because the information exchanged by the users makes it possible for a passive eavesdropper to compute the key. The approach used for \cite{Ingemarsson1982}  needs a high number of messages exchanged and executes an high number of integer exponentiation operations. %conference key distribution%
+
+Some other protocols like $\mu$TESLA \cite{Perrig2002} are some of the earliest proposed protocols in the category symmetric key based protocols and they are based on hash function to reduce the energy consumption but they do not check for data integrity. Other symmetric key schemes based on key ring like \cite{Bohli2007} are not scalable, and therefore, these are unsuitable for dynamic environments such in our scenario.
+
+In \cite{Porambage2015} the authors propose two lightweight group-key establishment protocols using an approach similar to ours.
+The first protocol allows only the legitimate members of the multicast group as eligible to continue the rest of the process of key derivation. 
+This one is more appropriate for distributed IoT applications, which require nodes to contribute hightly to the key computation and need greater randomness. 
+The second one allows to establish a shared secret key among the multicast group. This one is more suitable for centralized IoT applications, where a central entity performs the  majority of the cryptographic functions. 

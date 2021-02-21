@@ -1,0 +1,74 @@
+% $Id: discussion.tex 142 2012-12-22 10:41:32Z danbos $
+\chapter{Conclusions}
+\label{ch:conclusion}
+This thesis presented the design of a lightweight group-key establishment protocol with context-based authentication.
+First the feasibility to utilise contextual information to authenticate devices in the same environment in order to remove the necessity of any interaction with human or pre-sharing keys to establish a secure channel has been studied.
+The approach has been exemplified for ambient audio and other context sources, using data collected by a set of seven devices assembled with the sensors in two different environments.
+To generate a unique authentication secret key among the devices in the same environment a fuzzy commitment scheme has been used and adapted in its noise tolerance through its error correcting code parameters.
+The scheme has been tested using two different kind of fingerprints: one generated from the audio and one generated from the other sensors.
+The results show that it is difficult to neglect authentication when the sensing is performed in different times.
+This is due to the absence of events which generate high entropy on the sensed ambient features.
+However, when devices are located in different environments, it results easily feasible to not authenticate them due to the highly different generated fingerprints.
+This answers to the research question RQ2, underlying the difficulties encountered for the context-based authentication design in environments with absence of high entropy events.
+
+This thesis also presented the proof-of-concept implementation of the protocol for Contiki and constrained devices, followed by an evaluation of its performances.
+The scheme leverages the notion of one-way cryptographic accumulators to enable end nodes connected to a common gateway to establish and manage a secure group channel which guarantees forward and backward secrecy.
+
+The proposed protocol has been tested using Cooja and Tmote Sky with an actual multicast group.
+Tmote Sky, as the constrained devices used in this thesis, is a well-known device which is supported by Cooja. 
+Tmote Sky has limited support for cryptographic operations and, in order to implement the protocol, all cryptographic operations needs to be implemented in application level. 
+As consequence, the memory occupancy and the computing time is higher on the node and gateway side.
+The protocol's performance in term of total energy spent by the nodes has been evaluated and compared to similar solutions.
+The results show an increment of performances in terms of computation overhead and energy consumption, proving the efficiency of the proposed solution for group-key management on resource constrained devices.
+This provide an answer to the RQ1, showing that the proposed protocols could improve performances and being implemented on resource-constrained devices.
+
+\section{Ethical and social considerations}
+
+IoT  applications  are  becoming  part  and  parcel  of  our  daily  lives  in  various  areas such as healthcare, industrial automation and transports. 
+The number of IoT devices is growing day by day, sharing between them an enormous amount of users' personal information.
+Protecting them using appropriate authentication and key management protocols becomes necessary to guarantee security services such as safety, confidentiality and privacy, and the protocols presented in this thesis work could be integrate in security suites.
+In order to be trusted by the users it is important that the IoT applications presents strong built-in security mechanisms and this motivates the high applicability of the presented solutions.
+Moreover, improving the efficiency in terms of power consumption of these protocols brings benefits in terms of costs and less waste of batteries.
+
+An ethical aspect to consider is the design of protocols which can include weaknesses which can be exploited in a second time by third parties \cite{DorothyE.DenningandMilesSmid1994KeyMagazine} or to use them for malicious activities also known as kleptographic purposes \cite{Young2010MaliciousAspects}.
+
+The protocols presented here are based on public cryptographic primitives and the security services they claim to provide are duly proved. 
+Moreover, a justification of why and how they are useful to secure IoT applications is thoroughly
+provided. 
+
+
+%Judgement based on subject based aspects (aka your work..)
+%Judgement based on Social aspects
+%Judgement based on Ethical aspects
+
+
+
+
+
+
+\section{Future work}
+The thesis work analyzes the feasibility of authentication solutions based on context information observed by IoT devices and proposes a group-key management protocol based on this approach. 
+The data for the analysis has been obtained from two environments and using the same deployment settings for each device.
+This framework needs to be based on the  analysis  of  large-scale empirical measurements in a wider range of typical deployment settings of IoT devices  in  different environments. 
+
+The authentication keys generated from the sensors data and from the audio have been considered separately. 
+Therefore, a future step is to generate an unique and improved fingerprint form the different data.
+
+The key management solution proposed in this work is based on classical cryptographic primitives which rely on problems hard to solve by non-quantum computers.
+Building a quantum-safe solution is a potential future work, before quantum computers will be a reality able to break the used cryptographic primitives.
+
+The implementations effectuated during the thesis work, as explained in \ref{sec:scope} are considered Proof of Concept. 
+One might also consider applying a different third-party library and compare different levels of security.
+
+
+
+
+
+
+
+
+
+
+
+
+

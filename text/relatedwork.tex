@@ -1,0 +1,26 @@
+\iffalse
+In recent, years biometric information is utilised to an in-creasing degree to replace or enhance classical cryptographic schemes \cite{Skoric2010SecurityData}.  Popular examples are photos or finger prints in ID-documents, Iris-scans or in the future probably short tandem repeats in a human’s DNA [29].  Generally, features are extracted from the biometric data and a characteristic set of features is required to match in o
+\fi
+
+The proposed protocol is based on a previous work presented in \cite{Gebremichael2018} and \cite{Ferrari2018}.
+There are well studied group key establishment protocols in use today. 
+An extension of the Diffie-Hellman protocol to a group of nodes with the generation of a one-time session key is described in \cite{Steiner1996}and \cite{Bresson2007}. However, the intensive computational power required for the execution of these protocols makes them not ideal for power and resources constrained devices.
+Moreover, \cite{Bohli2007} demonstrated that \cite{Bresson2007} does not meet some security requirements.
+
+A conference-key distribution system is proposed in \cite{Ingemarsson1982} but the the system resulted insecure because the information exchanged by the users makes it possible for a passive eavesdropper to compute the key. 
+Moreover, the approach used for \cite{Ingemarsson1982}  requires a high number of messages exchanged and an high number of expensive computational operations.
+
+Some of the earliest proposed protocols such as $\mu$TESLA \cite{Perrig2002} belongs to the symmetric key based protocols category and they are based on hash function in order to reduce the energy consumption. 
+Other symmetric key schemes based on key ring like \cite{Bohli2007} are not scalable, and therefore, these are unsuitable for dynamic environments such in the analyzed scenario.
+
+In \cite{Porambage2015} the authors propose two lightweight group-key establishment protocols using an approach similar to ours.
+The first protocol allows only the legitimate members of the multicast group as eligible to continue the rest of the process of key derivation. 
+This one is more appropriate for distributed IoT applications, which require nodes to contribute hightly to the key computation and need greater randomness. 
+The second one allows to establish a shared secret key among the multicast group. This one is more suitable for centralized IoT applications, where a central entity performs the  majority of the cryptographic functions. 
+
+For the purpose of authentication, most of the proposed solutions involve human interaction such as the Wi-Fi protected setup \cite{EldefrawyDynamicTimestamping} or the the necessity to use pre shared keys such as \cite{Gebremichael2019LightweightPad}. 
+In recent, years biometric information is utilised to an in-creasing degree to replace or enhance classical cryptographic schemes \cite{Skoric2010SecurityData}.
+Researchers started to explore context-based pairing protocol in order to capture commonly observed context features for pairing, leveraging on-board sensors and removing the "human-in-the-loop" factor.
+A solution which uses ambient light or sound is proposed in \cite{Miettinen2014Context-BasedDescriptors}. 
+In \cite{Schurmann2013SecureAudio} is proposed a solution which leverages audio for the secure pairing, but it results sensible to synchronization.
+A solution based on heterogeneous context features is proposed in  \cite{Han2018DoTypes} and it relies on events observed by each sensor.

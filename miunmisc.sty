@@ -1,0 +1,352 @@
+%%
+%% This is file `miunmisc.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% miunmisc.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2012, Daniel Bosk <daniel.bosk@miun.se>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{miunmisc}
+    [2013/05/05 v1.7 Mid Sweden University Miscellaneous Package]
+\@ifpackageloaded{translator}{%
+  \PassOptionsToPackage{english,swedish}{translator}
+  \usedictionary{miunmisc}
+}{%
+  \RequirePackage[english,swedish]{translator}
+  \usedictionary{miunmisc}
+}
+\DeclareOption{varioref}{%
+  \@ifpackageloaded{babel}{%
+    \addto{\extrasswedish}{%
+      \renewcommand{\reftextbefore}{\translate{textbefore}}%
+      \renewcommand{\reftextfacebefore}{\translate{textfacebefore}}%
+      \renewcommand{\reftextafter}{\translate{textafter}}%
+      \renewcommand{\reftextfaceafter}{\translate{textfaceafter}}%
+      \renewcommand{\reftextfaraway}[1]{\translate{textfaraway} \pageref{#1}}%
+    }
+    \addto{\extrasenglish}{%
+      \renewcommand{\reftextbefore}{\translate{textbefore}}%
+      \renewcommand{\reftextfacebefore}{\translate{textfacebefore}}%
+      \renewcommand{\reftextafter}{\translate{textafter}}%
+      \renewcommand{\reftextfaceafter}{\translate{textfaceafter}}%
+      \renewcommand{\reftextfaraway}[1]{\translate{textfaraway} \pageref{#1}}%
+    }
+  }{%
+    \renewcommand{\reftextbefore}{\translate{textbefore}}
+    \renewcommand{\reftextfacebefore}{\translate{textfacebefore}}
+    \renewcommand{\reftextafter}{\translate{textafter}}
+    \renewcommand{\reftextfaceafter}{\translate{textfaceafter}}
+    \renewcommand{\reftextfaraway}[1]{\translate{textfarway} \pageref{#1}}%
+  }
+}
+\DeclareOption{prettyref}{%
+  \@ifpackageloaded{varioref}{\relax}{%
+    \let\vref\ref
+  }
+  \@ifpackageloaded{amsmath}{\relax}{%
+    \DeclareRobustCommand{\eqref}[1]{%
+      (\ref{#1})
+    }
+  }
+  \@ifpackageloaded{babel}{%
+    \addto{\extrasswedish}{%
+      \newrefformat{prt}{\translate{part} \ref{#1}}%
+      \newrefformat{ch}{\translate{chapter} \ref{#1}}%
+      \newrefformat{sec}{\translate{section} \ref{#1}}%
+      \newrefformat{app}{\translate{appendix} \ref{#1}}%
+      \newrefformat{q}{\translate{question} \vref{#1}}%
+      \newrefformat{qp}{\translate{part} \ref{#1}}%
+      \newrefformat{xrc}{\translate{exercise} \vref{#1}}%
+      \newrefformat{eq}{\translate{equation} \eqref{#1}}%
+      \newrefformat{tab}{\translate{table} \vref{#1}}%
+      \newrefformat{tbl}{\translate{table} \vref{#1}}%
+      \newrefformat{fig}{\translate{figure} \vref{#1}}%
+      \newrefformat{alg}{\translate{algorithm} \vref{#1}}%
+      \newrefformat{lst}{\translate{listing} \vref{#1}}%
+      \newrefformat{ln}{\translate{line} \ref{#1}}%
+    }
+    \addto{\extrasenglish}{%
+      \newrefformat{prt}{\translate{Part} \ref{#1}}%
+      \newrefformat{ch}{\translate{Chapter} \ref{#1}}%
+      \newrefformat{sec}{\translate{Section} \ref{#1}}%
+      \newrefformat{app}{\translate{Appendix} \ref{#1}}%
+      \newrefformat{q}{\translate{question} \vref{#1}}%
+      \newrefformat{qp}{\translate{part} \ref{#1}}%
+      \newrefformat{xrc}{\translate{exercise} \vref{#1}}%
+      \newrefformat{eq}{\translate{equation} \eqref{#1}}%
+      \newrefformat{tab}{\translate{Table} \vref{#1}}%
+      \newrefformat{tbl}{\translate{Table} \vref{#1}}%
+      \newrefformat{fig}{\translate{Figure} \vref{#1}}%
+      \newrefformat{alg}{\translate{Algorithm} \vref{#1}}%
+      \newrefformat{lst}{\translate{Listing} \vref{#1}}%
+      \newrefformat{ln}{\translate{line} \ref{#1}}%
+    }
+  }{%
+    \newrefformat{prt}{\translate{Part} \ref{#1}}
+    \newrefformat{ch}{\translate{Chapter} \ref{#1}}
+    \newrefformat{sec}{\translate{Section} \ref{#1}}
+    \newrefformat{app}{\translate{Appendix} \ref{#1}}
+    \newrefformat{q}{\translate{question} \vref{#1}}
+    \newrefformat{qp}{\translate{part} \ref{#1}}
+    \newrefformat{xrc}{\translate{exercise} \vref{#1}}
+    \newrefformat{eq}{\translate{equation} \eqref{#1}}
+    \newrefformat{tab}{\translate{Table} \vref{#1}}
+    \newrefformat{tbl}{\translate{Table} \vref{#1}}
+    \newrefformat{fig}{\translate{Figure} \vref{#1}}
+    \newrefformat{alg}{\translate{Algorithm} \vref{#1}}
+    \newrefformat{lst}{\translate{Listing} \vref{#1}}
+    \newrefformat{ln}{\translate{line} \ref{#1}}
+  }
+}
+\DeclareOption{listings}{%
+  \@ifpackageloaded{color}{%
+    \definecolor{termbkg}{gray}{0.90}%
+    \definecolor{textbkg}{gray}{0.97}%
+    \definecolor{commentcol}{rgb}{0,0.5,0}%
+  }{% color not loaded
+    \relax
+  }
+  \lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Å}{{\AA}}1
+    {å}{{\aa}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+  }
+  \lstset{%
+    basicstyle=\small,
+    numberstyle=\small,
+    numbers=left,
+    stepnumber=1,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=true,
+    showtabs=false,
+    frame=TB,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+  }
+  \lstdefinelanguage{none}{
+    keywords={}
+  }
+  \@ifpackageloaded{color}{
+    \lstdefinestyle{term}{
+      language=none,
+      numbers=left,
+      frame=single,
+      basicstyle=\ttfamily\small,
+      backgroundcolor=\color{termbkg},
+    }
+\lstdefinestyle{conf}{
+      language=none,
+      numbers=none,
+      frame=single,
+      basicstyle=\ttfamily\small,
+      backgroundcolor=\color{textbkg},
+    }
+    \lstdefinestyle{text}{
+      language=none,
+      numbers=none,
+      frame=single,
+      basicstyle=\ttfamily\small,
+      backgroundcolor=\color{textbkg},
+    }
+    \lstdefinestyle{code}{
+      numbers=left,
+      frame=single,
+      basicstyle=\ttfamily\small,
+      backgroundcolor=\color{white},
+    }
+  }{
+    \lstdefinestyle{term}{
+      language=none,
+      numbers=left,
+      frame=single,
+      basicstyle=\ttfamily\small,
+    }
+\lstdefinestyle{conf}{
+      language=none,
+      numbers=none,
+      frame=single,
+      basicstyle=\ttfamily\small,
+    }
+\lstdefinestyle{text}{
+      language=none,
+      numbers=none,
+      frame=single,
+      basicstyle=\ttfamily\small,
+    }
+    \lstdefinestyle{code}{
+      numbers=left,
+      frame=single,
+      basicstyle=\ttfamily\small,
+    }
+  }
+  \lstset{style=text}
+  \lstnewenvironment{src}[1][]{%
+    \lstset{style=code,#1}
+  }{%
+    \lstset{style=text}
+  }
+  \lstnewenvironment{source}[1][]{%
+    \lstset{style=code,#1}
+  }{%
+    \lstset{style=text}
+  }
+  \lstnewenvironment{textfile}[1][]{%
+    \lstset{style=text,#1}
+  }{%
+    \lstset{style=text}
+  }
+\lstnewenvironment{config}[1][]{%
+\lstset{style=conf,#1}
+  }{%
+\lstset{style=conf}
+  }
+  \lstnewenvironment{terminal}[1][]{%
+    \lstset{style=term,#1}
+  }{%
+    \lstset{style=text}
+  }
+  \newcommand{\code}[2][style=code]{\lstinline[#1]`#2`}
+  \newcommand{\term}[2][style=term]{\lstinline[#1]`#2`}
+  \renewcommand{\lstlistlistingname}{\translate{Listings}}
+  \renewcommand{\lstlistingname}{\translate{Listing}}
+}
+\DeclareOption{natbib}{%
+  \@ifpackageloaded{babel}{%
+    \iflanguage{swedish}{%
+      \bibliographystyle{sweplnat}%
+    }{
+      \bibliographystyle{unsrtnat}%
+    }
+  }{%
+    \relax%
+  }
+  \setcitestyle{numbers,square}
+}
+\DeclareOption{algorithm}{%
+  \ifx\ALG@floatstyle\undefined\relax\else
+    \renewcommand{\ALG@floatstyle}{plain}
+    \floatstyle{plain}
+    \restylefloat{algorithm}
+  \fi
+  \@ifpackageloaded{babel}{%
+    \ifx\floatname\undefined\relax\else%
+      \addto{\extrasswedish}{\floatname{algorithm}{\translate{Algorithm}}}
+      \addto{\extrasenglish}{\floatname{algorithm}{\translate{Algorithm}}}
+    \fi
+    \@ifpackageloaded{algpseudocode}{%
+      \addto{\extrasswedish}{%
+        \algrenewcommand\algorithmicfunction{\textbf{\translate{function}}}%
+        \algrenewcommand\algorithmicprocedure{\textbf{\translate{procedure}}}%
+        \algrenewcommand\algorithmicwhile{\textbf{\translate{while}}}%
+        \algrenewcommand\algorithmicdo{\textbf{\translate{do}}}%
+        \algrenewcommand\algorithmicend{\textbf{\translate{end}}}%
+        \algrenewcommand\algorithmicforall{\textbf{\translate{for all}}}%
+        \algrenewcommand\algorithmicfor{\textbf{\translate{for}}}%
+        \algrenewcommand\algorithmicrepeat{\textbf{\translate{repeat}}}%
+        \algrenewcommand\algorithmicuntil{\textbf{\translate{until}}}%
+        \algrenewcommand\algorithmicloop{\textbf{\translate{loop}}}%
+        \algrenewcommand\algorithmicif{\textbf{\translate{if}}}%
+        \algrenewcommand\algorithmicthen{\textbf{\translate{then}}}%
+        \algrenewcommand\algorithmicelse{\textbf{\translate{else}}}%
+        \algrenewcommand\algorithmicrequire{\textbf{\translate{require}}}%
+        \algrenewcommand\algorithmicensure{\textbf{\translate{ensure}}}%
+        \algrenewcommand\algorithmicreturn{\textbf{\translate{return}}}%
+      }{\relax}
+      \addto{\extrasenglish}{%
+        \algrenewcommand\algorithmicfunction{\textbf{\translate{function}}}%
+        \algrenewcommand\algorithmicprocedure{\textbf{\translate{procedure}}}%
+        \algrenewcommand\algorithmicwhile{\textbf{\translate{while}}}%
+        \algrenewcommand\algorithmicdo{\textbf{\translate{do}}}%
+        \algrenewcommand\algorithmicend{\textbf{\translate{end}}}%
+        \algrenewcommand\algorithmicforall{\textbf{\translate{for all}}}%
+        \algrenewcommand\algorithmicfor{\textbf{\translate{for}}}%
+        \algrenewcommand\algorithmicrepeat{\textbf{\translate{repeat}}}%
+        \algrenewcommand\algorithmicuntil{\textbf{\translate{until}}}%
+        \algrenewcommand\algorithmicloop{\textbf{\translate{loop}}}%
+        \algrenewcommand\algorithmicif{\textbf{\translate{if}}}%
+        \algrenewcommand\algorithmicthen{\textbf{\translate{then}}}%
+        \algrenewcommand\algorithmicelse{\textbf{\translate{else}}}%
+        \algrenewcommand\algorithmicrequire{\textbf{\translate{require}}}%
+        \algrenewcommand\algorithmicensure{\textbf{\translate{ensure}}}%
+        \algrenewcommand\algorithmicreturn{\textbf{\translate{return}}}%
+      }{\relax}
+    }{\relax}
+  }{%
+    \@ifpackageloaded{algpseudocode}{%
+      \algrenewcommand\algorithmicfunction{\textbf{\translate{function}}}%
+      \algrenewcommand\algorithmicprocedure{\textbf{\translate{procedure}}}%
+      \algrenewcommand\algorithmicwhile{\textbf{\translate{while}}}%
+      \algrenewcommand\algorithmicdo{\textbf{\translate{do}}}%
+      \algrenewcommand\algorithmicend{\textbf{\translate{end}}}%
+      \algrenewcommand\algorithmicforall{\textbf{\translate{for all}}}%
+      \algrenewcommand\algorithmicfor{\textbf{\translate{for}}}%
+      \algrenewcommand\algorithmicrepeat{\textbf{\translate{repeat}}}%
+      \algrenewcommand\algorithmicuntil{\textbf{\translate{until}}}%
+      \algrenewcommand\algorithmicloop{\textbf{\translate{loop}}}%
+      \algrenewcommand\algorithmicif{\textbf{\translate{if}}}%
+      \algrenewcommand\algorithmicthen{\textbf{\translate{then}}}%
+      \algrenewcommand\algorithmicelse{\textbf{\translate{else}}}%
+      \algrenewcommand\algorithmicrequire{\textbf{\translate{require}}}%
+      \algrenewcommand\algorithmicensure{\textbf{\translate{ensure}}}%
+      \algrenewcommand\algorithmicreturn{\textbf{\translate{return}}}%
+    }{\relax}
+  }
+}
+\DeclareOption{beamer}{%
+  \providetranslation[to=swedish]{Theorem}{Sats}
+  \providetranslation[to=swedish]{Corollary}{Korollarium}
+  \providetranslation[to=swedish]{Axiom}{Axiom}
+  \providetranslation[to=swedish]{Example}{Exempel}
+  \providetranslation[to=swedish]{Algorithm}{Algoritm}
+  \newenvironment{axiom}[1]{\begin{block}{\translate{Axiom} (#1)}}{\end{block}}
+  \@ifpackageloaded{algorithm}{\relax}{%
+    \newenvironment{algorithm}[1]{\begin{block}{\translate{Algorithm}
+      (#1)}}{\end{block}}
+  }
+}
+\DeclareOption{nomencl}{%
+  \renewcommand{\nomname}{\translate{Nomenclature}}
+  \renewcommand{\eqdeclaration}[1]{, \translate{see equation}\nobreakspace#1}
+  \renewcommand{\pagedeclaration}[1]{, \translate{see page}\nobreakspace#1}
+}
+\DeclareOption{parskip}{% The Lennart option, do not use! [texdoc memman]
+  \setlength{\parskip}{5pt}
+  \setlength{\parindent}{0pt}
+}
+\DeclareOption{color}{%
+  \definecolor{miunyellow}{cmyk}{0,0.10,1.0,0}
+  \definecolor{miunblue}{cmyk}{1.0,0.34,0,0.02}
+  \definecolor{miunblack}{cmyk}{0,0,0,1.0}
+  \definecolor{miungray}{cmyk}{0,0,0,0.11}
+  \definecolor{miundark}{cmyk}{0.11,0.01,0,0.69}
+  \definecolor{miunwhite}{cmyk}{0,0,0,0}
+}
+\ProcessOptions\relax
+\DeclareRobustCommand{\CCBYSA}{%
+  \translate{This work is published under the}%
+  \translate{CC BY-SA}.
+}
+\endinput
+%%
+%% End of file `miunmisc.sty'.

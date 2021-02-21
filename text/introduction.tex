@@ -1,0 +1,210 @@
+% $Id: introduction.tex 142 2012-12-22 10:41:32Z danbos $
+\chapter{Introduction}
+\label{ch:introduction}
+
+During the last decades Internet has evolved significantly towards the Internet of Things (\acs{IoT}) environment, where  different resource-constrained objects  communicate and exchange information with each other for improved functionalities and performance. 
+The Internet of Things denotes the interconnection of highly  heterogeneous  networked  embedded systems  (nodes)  with different communication patterns, enabling the connection to IP networks and allowing them to be remotely monitored and controlled \cite{Heer2011}.
+According to the projections made by networking specialists, it is forecast that by the next years the adoption of \acs{IoT} will boost the amount of connected devices, estimating many billions of different web-enabled devices all around the globe\cite{Chen2014} \cite{CiscoInternetBusinessSolutionsGroupIBSG2011TheEverything}.
+IoT introduces different changes to the future of Internet, becoming also a key enabling technology of the Fifth Generation(\acs{5G}) wireless systems.
+This development does not only affect digitalizing and connecting the society, but also the industry and economy as a whole. 
+Concepts brought by the Internet of Things, such as IoT cloud computing, Big Data analysis on data gathered from the sensors, reached also the industry which has started to embrace the IoT forming the Industrial Internet of Things (\acs{IIoT}) \cite{Shrouf2014SmartParadigm}.
+
+With the development and expansion of communication and sensing technologies, also the research sector has been affected, bringing new challenges.
+The main research challenges moved, in fact, from packet switching to connect several computers in a network \cite{Barry2015BriefInternet}, trying to make devices accessible and allowing communication between them.
+
+Over the last two decades, wireless communications and digital electronics technologies have been rapidly evolving by introducing the incredible advances to Wireless Sensor Networks (\acsp{WSN}).
+Typically, a \acs{WSN} is a network that comprises a large number of sensor nodes, where each node is equipped with single or multiple sensors to detect physical phenomena such as light intensity, temperature, humidity, or pressure measuring and quantifying their physical environment \cite{Akyildiz2002WirelessSurvey}.
+\acsp{WSN} represent an important technology for distributed monitoring of different physical quantities, capable to provide measurements characterized by high temporal and spatial resolutions.
+
+
+
+\section{Background and problem motivation}
+\label{sec:background}
+The more objects are connected the more the network is exposed to security vulnerabilities, leading to a drastic exposure of users' potentially sensitive privacy threats.
+Considering, therefore, the number of everyday device which could possibly be involved, the \acs{IoT} has greater threats and risks than what Internet has until now\cite{NationalIntelligenceCouncil1385Six2025}. 
+Security and privacy attacks and their harmful consequences can occur when sensitive information is concealed or controlled without users' consent.
+
+Despite the fact that security is a prime and mandatory requirement that should be integrated at the design phase of the \acs{IoT} device life-cycle, still it is too often neglected in the development of systems. 
+Recent press reports highlight many security breaches that are taking the advantage of insecure \acs{IoT} devices, leading attacks such as against networked garage or cars  door systems \cite{Eisenbarth2008OnScheme} or medical devices \cite{Strobel2013FumingSystem}.
+
+Due to the heterogeneously of the networking technologies and devices in dynamic networking environments, the deployment of conventional security protocols has become challenging.
+In fact, to face powerful attackers, devices with high performances require advanced security solutions.
+However, these protocols can be too expensive to be deployed on resource constrained devices, which are limited in terms of battery capacity, computational power, memory-footprint and bandwidth utilization.
+
+Moreover, even traditional cryptographic techniques, such as the \ac{DH} protocol, are not sufficient for a secure pairing between the devices that spontaneously come into the network.
+Techniques like the devices' names and network addresses do not guarantee protection from the devices impersonation by an attacker.
+
+Therefore, finding a balance between security solutions and the associated resources utilization overhead is subject to new challenges, keeping regard on how these systems can be made easily usable and not compromised by users.
+
+Since there is a enormous amount of connected devices with different functionalities, it may happen that some have to communicate with an unknown number of other devices.
+Clustering and multicasting result the most efficient means of resource management in the communication in IoT applications \cite{Klaoudatou2011AWSNs}.
+In group communication a group of two or more devices communicate with each other in such a way that a sender broadcasts a message to the group rather than sending a unicast message for each group member.
+Conveying messages to a multicast group is more efficient and effective than sending unicast messages to different devices in multiple copies. 
+Multicast communication helps with improving the bandwidth usage reducing the number of transmitted messages and enabling then a fast delivery of a message to multiple recipients, a very important feature in time critical applications.
+It also minimizes the energy consumption and processing overhead at the terminals improving their lifetime and responsiveness. 
+
+
+\section{Problem statement}
+\label{sec:problemstatement}
+
+According to the statistics \cite{statIoT} there are more than 7 billions of connected "things" in the world today, challenging the researchers with novel research problems due to this ever-growing amount of devices. 
+%%statistics (https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/)%%
+%It becomes important to establish  security  associations  with  devices  that  are introduced into the user’s trust domain and efficiently identify them. 
+
+The thesis aims to address the following research questions:
+\begin{itemize}
+    \item[RQ1:] How can lightweight and secure key establishment and authentication protocols be designed in order to permit the deployment on constrained devices in IoT applications?\\Public  key  cryptography (\acs{PKC}) has usually been chosen to ensure a satisfactory level of  security  for  data  transmissions  within  the  network.  
+    This is  because  one  does  not  need  to  transmit  the  private  key in  the  channel,  in  addition  to  providing  digital  signatures that can not be repudiated. 
+    However, the constrained energy, computation,  and  memory  budgets  of  sensors  make  the implementation of PKC challenging.
+    
+    \item[RQ2:] Can the physical environment be exploited in order to enable secure authentication between devices and gateways?\\
+    During the last years, the constantly increasing number of sensors in combination with the variation inherent in many of the measurable quantities, brought into the spotlight novel security approaches(such as Common Random Number Generators \acs{CRNG}). 
+    Using the aquired data to generate mutual authentication could bring a natural way to authenticate that the keys obtained through the cryptographic exchange belong to devices that are within phisical proximity.
+    The pairing would happen without user interaction, based solely on information that the involved devices can communicate and sense from their ambient context without human involvement.  
+    
+\end{itemize}
+The research questions of this study which are outlined above are motivated by the research problems described in the previous sections.
+
+\section{Scope}
+\label{sec:scope}
+The scope of this thesis work is to analyze the use of context information in order to  realise autonomous establishment of security services able to be used by the IoT applications mentioned previously.
+The target of the authentication protocol are IoT devices in factory and office environments and the complexity of the services is not the scope of this research.
+For the group-key establishment protocol the target are wireless sensors in order to being able to extend the solution to more powerful devices. 
+The evaluations are performed on simulated devices and the implementation of the proposed solutions on physical devices is not included as part of this work.
+
+The conducted implementations of the concepts proposed in the thesis are considered a Proof of Concept, therefore is not included efforts to provide production ready solutions. 
+The power efficiency related properties (e.g. duty-cycle) are also out of the scope of this thesis. 
+Power consumption result is only measured for key establishment process. 
+In order to reduce the measurement loads, each devices are configured to disable the power saving option. 
+Each devices has 100\% active time and resulting always on ready state to receive, send and process a message.
+
+\section{Concrete and verifiable goals}
+\label{sec:goals}
+As part of the preparation and initialization of the master thesis project work a set of concrete and verifiable goals has been elaborated and is presented in the following list:
+\begin{itemize}
+    \item[G1] Research and evaluate context-based authentication and lightweight group key management protocols used in the IoT context. 
+    \item[G2] Implementation of devices able to get ambient data using different sensors and data acquisition from real world use cases.
+    \item[G3] Analysis of the obtained data in order to generate an authentication key between devices in located in the same ambient.
+    \item[G4] Design and implementation of a lightweight group-key management scheme which uses lightweight cryptographic primitives.  
+    \item[G5] Measure the computation overhead and the communication overhead of the implemented protocol and include related lightweight group-key management protocols in the performance evaluation.
+\end{itemize}
+How these goals were achieved as part of the work in this master thesis project is outlined in the subsequent chapters. First however, an outline of the chapters in the report at hand is provided.
+
+
+\vspace{2em}
+
+\section{Outline}
+\label{ch:disposition}
+Chapter \ref{ch:introduction} introduces the topic of this master thesis project, gives reasons for the project's motivation, scopes the work, and sets goals to be achieved in this master thesis project. The following Chapter \ref{ch:theory} outlines and describes the principle topics encountered during the master thesis project. Chapter \ref{ch:methodology}, Methodology, describes in which manner the concrete goals shall be approached in order to fulfill them. The Chapter \ref{proxAuth} describes the scenarios analyzed for the context-based authentication scheme and the threat model considered in the study. The subsequent Chapter \ref{ch:implementationAuth} gives detailed insight into the implementation efforts conducted in this master thesis project work related to the authentication protocol. Chapter \ref{ch:lightwightProto} is described the proposed lightweight group-key establishment protocol and the implementation details are shown in Chapter \ref{ch:implementationProto}. The results of the performance evaluation of the authentication protocol and the proposed group-key management scheme are covered in Chapter \ref{ch:results}. The final chapter, Chapter \ref{ch:conclusion}, outlines the thesis' conclusion which contains a discussion covering the implementation efforts and tests, the conclusion itself and further describes both the ethical considerations and the potential future work. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   The old stuff but maybe still important
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+
+
+\section{Background and problem motivation}
+\label{sec:background}
+%Investigate and examine the performance of IoT application layer protocols in general and combinations of various protocol stacks.
+%Why? Able to compare existing IoT protocols, make adaptions and choose appropriate protocol for given situations.
+
+--REWRITE
+The Internet of Things (IoT) is an emerging technology movement towards connecting devices in the scale of billions in the near future\cite{Evans2011}. The IoT is one of the fundamental parts for the construction of the "Industry 4.0" \cite{Shrouf2014}. In addition, it has the possibility to influence the activities of a people in almost any aspect of their lifes\cite{Atzori2010}. 
+
+However, many topics in the IoT such as the network architecture, addressing, or security are still open issues\cite{Borgia2014}. Yet different architectures have been proposed to cope with the complex, versatile IoT scenarios. One of those approaches has the principal idea of combining the enormous computational resources of the cloud with the things in the IoT. This introduces many advantages such as on-demand and scalable storage yet introduces many new challenges and issues to overcome. One of the foremost mentioned issues is the unsatisfied high latency \cite{Yi2015} which is introduced by the long physical distances between the sensing devices and the cloud. Another challenge is the enormous amount of sensed data which needs to be transmitted through the Internet backbone. These limitations of the architectural solution are currently subject of research.
+
+
+
+
+
+\section{Overall aim}
+\label{sec:overallaim}
+%improve the qos. more variations to pick from for different IoT situations.
+
+-REWRITE, does this belong here?
+Not only can this research enable the utilization of SCTP for future applications in the fog computing environment to enhance the reliability and failure-resilience, moreover, it may present a practicable alternative to the well-established transport layer protocols TCP and UDP. 
+The outcome of this research study has furthermore the potential to serve as a basis for enhanced experiments and feasibility tests of the SCTP protocol such as the influence of a secure data transmission. It offers the chance to conduct trials and research of the utilization of SCTP for IoT application layer protocols such as CoAP or the Message Queuing Telemetry Transport protocol (MQTT) \cite{specMQTT}. Furthermore, the opportunity is presented to design and build an exclusive, first of a kind application/library, which applies the SCTP protocol on the transport layer, to transmit and exchange sensed data in a IoT/fog computing environment.
+
+Yet this study could also identify as well as giving reasons why or to which degree the SCTP protocol is not applicable in the fog computing environment or in specific situations. 
+
+Whichever outcome the study shows, the research community can benefit of the results and apply the findings towards providing a higher QoS respectively QoE in a fog computing environment for the user, industry, or business sector.
+
+
+!!!!
+USE THE STUFF FROM THE PROPOSAL!!!!!!!!!!
+!!!!!!
+-->> and have a look at the other thesis project reports
+
+
+
+\section{Scope}
+\label{sec:delimit}
+%limited to IoT on medium constrained devices such as Raspberry Pi
+%protocols and network performance metrics
+
+%Focus on the protocols for the communication between parties involved in the IoT, sensor devices, middle layer devices and the cloud is the decided upon general direction of research.
+
+
+\section{Concrete and verifiable goals}
+\label{sec:goals}
+--REWRITE, does this belong here??
+The first aim is to examine the feasibility of the SCTP protocol for a utilization in a fog computing environment. This can be achieved by conducting an extensive research of existing work and conduct a theoretical/elementary suitability test. Secondly a comparison of TCP, UDP, and SCTP in a qualitative as well as quantitative manner can be conducted to evaluate the performance of the protocols regarding a utilization in a fog computing environment. As a next step, an implementation of a fog computing testbed can be pursued to compare the performance of the above-mentioned protocols and in combination with an IoT application layer protocol such as CoAP or other kinds of applications. Further tests and experiments evaluating the QoS of all the applied implementations will be included in this step.
+To this end, the comparison can be extended to include the provided secure data transmission systems of the evaluated protocols and implementations.
+
+
+
+\section{High-level problem statement}
+\label{sec:aim}
+%The application areas of the IoT are as manifold as it gets. No solution will fit it all. It will rather be an assortment of many different technologies, protocols and devices. 
+%\cite{atzori2010internet} depicted 5? main areas were the IoT will be applied
+
+%Therefore one needs to investigate and examine various ways of fulfilling a given task respectively situation. 
+
+--REWRITE
+The purpose of this study is to find means and potentials to enhance the QoS of the fog computing architecture to make it more applicable for industry or business solutions. 
+
+Being able to serve a situation- and business-aware QoS for a given field or area is one of the challenges which need to be solved to allow the fog computing approach a widespread utilization. Furthermore, it is important to note that the QoS is not only a technical/engineering issue since it involves the needs and requirements of the users and customers. An offered implementation is therefore closely coupled to the business side and has an influence on the profit of the offered application. 
+Since the mere nature of the IoT is to be applicable in almost any domain, the QoS-metrics may vary heavily depending on the applied field and situation. It is therefore a reasonable approach to investigate the influence of certain QoS-metrics in different situations and find means to improve the QoS in these situations. Hence the examinations, experiments, and enhancements are in most cases tightly coupled to the applied scenario. 
+
+Not always directly part of the QoS is the security and protection of the sensed data yet should this topic have at least a basic coverage in every applied work in this study. This is, since the acceptance of the IoT and therefore fog computing is, to a certain portion, based on the ability to provide the user, industry, and business a secure solution to their problem. 
+
+
+\section{Detailed problem statement}
+\label{sec:problemstatement}
+
+
+
+\section{Outline}
+\label{ch:disposition}
+Chapter 2 describes ..
+Chapter 3 describes ..
+
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+%%%%%%
+\section{Contributions}
+\label{ch:contrib}
+
+--- There were no other contributer in this project. So don't include this section, not even the title.
+
+
+
+\noindent
+This project had two contributing workers, Johannes and Thomas. The division of the work was to let Thomas work on the private cloud setup with the open source system OpenNebula and integrate the gaming service on a public cloud (Amazon AWS). Thomas also had the responsibility to add HTML and CSS code for the visual experience in the service as well. He made it responsive for small screen mobile devices as well as for large screens on desktops. 
+\newpara
+Johannes on the other hand setup the service itself and programmed most of the back-end and front-end of the game service as well as the listing. He constructed a basic game simulation on the server side for the game environment and it's properties to render to a canvas image instead of the screen. He constructed a stream of the generated game images to send to the client and an API for controlling the game from the client side.
+\newpara
+There was a lot of corporation between the two participants in the project, the evaluation and the measurements of the streaming, which was done completely together.
+
+\fi

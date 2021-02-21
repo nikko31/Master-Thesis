@@ -1,0 +1,186 @@
+% $Id: thesis.tex 184 2013-10-23 14:59:01Z danbos $
+% Author: Daniel Bosk <daniel.bosk@miun.se>
+%
+% These files may freely be used by students for their theses.
+%
+% If you make some improvements, please send a unified diff (`diff -u`) to 
+% the author and it might be included in future revisions.
+%
+%\documentclass[a4paper,12pt,knd,final,oneside]{miunthes} % kandidat
+%\documentclass[a4paper,bsc,final]{miunthes} % same as knd, B.Sc.
+%\documentclass[a4paper,mag,final]{miunthes} % magister
+%\documentclass[a4paper,msc,final]{miunthes} % same as magister, M.Sc.
+\documentclass[a4paper,12pt,mst,final, oneside]{miunthes} % bologna master, M.Sc.
+% \documentclass[a4paper,project,final]{miunthes} % generic project report
+
+
+%%%%%%%%%%%%%%%%%%%%%%  BASIC packages  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} % center onesided report
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish,english]{babel}
+
+\usepackage[intoc]{nomencl}
+\usepackage{varioref,prettyref}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{listings}
+\usepackage{nameref}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{enumitem}                       % spacings in the list
+\usepackage{setspace}						% change line spacing
+\usepackage{ifthen}                         % ifthenelse cmd
+\usepackage{pgfkeys}                        % command key => value approach, ex: \cmd[width=10cm]{hej}
+\usepackage[printonlyused]{acronym} 		% Acronyms
+\usepackage[hidelinks]{hyperref}			% turn acronyms, ToC, figure and table captions into hyperlinks, but hide the links, but don't highlight the links
+\usepackage[capitalise,noabbrev]{cleveref}	% This one is awesome! Automatically recognises the object referred to (use for Lables, Images, Tables, etc.)
+
+\usepackage{pdfpages}                       % To include the front page
+%% tikZ Graphic Package
+\usepackage{standalone}			% include standalone files (tikZ pictures from external files, etc)
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{shapes.geometric,arrows.meta}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf, tikz}			% tikZ drawing package
+\usepackage{pgf-umlsd}
+\usetikzlibrary{calc,arrows,automata,shapes}	% tikZ libraries
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{multirow}
+\usepackage[style=numeric-comp,natbib=true,maxbibnames=99,sorting=none,backend=biber]{biblatex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setcounter{secnumdepth}{4}    in miunthes.cls
+%\setcounter{tocdepth}{4}
+
+
+\renewcommand{\comment}[1]{}
+\newcommand{\newpara}{\\[0.3cm]}
+\newcommand{\course}{dist}
+
+\addbibresource{library.bib}
+\usepackage[varioref,prettyref,listings,nomencl]{miunmisc}
+\makenomenclature
+%
+\subject{Computer Engineering}
+\title{Master's thesis}
+
+\subtitle{
+    Department of Information Systems and Technology
+    \newline
+    \newline
+    Master of Science in Computer Engineering
+    \newline
+    %\textsl{\normalsize{Master by Research in Computer Engineering}}
+    \newline
+    \newline
+    \newline
+    \textbf{Context-Based Authentication and Lightweight Group-Key Establishment Protocol for IoT Devices}
+    \newline
+}
+
+\author{Nico Ferrari}
+%\setboolean{@twoside}{false}
+
+
+\begin{document}
+
+%\includepdfmerge{out/Bsc_thesis_front_page.pdf,-}
+ 	\begin{titlingpage}
+ 		\maketitle
+ 	\end{titlingpage}
+	\frontmatter
+	\noindent
+	\vspace{\fill}\\
+	\textbf{MID SWEDEN UNIVERSITY}\\
+    Department of Information Systems and Technology\\
+    \newline
+    \textbf{Examiner:} Prof. Mikael Gidlund, \url{mikael.gidlund@miun.se}\\
+    \textbf{Supervisor:} Dr. Ulf Jennehag , \url{ulf.jennehag@miun.se}\\
+    \textbf{Author:} Nico Ferrari, \url{nife1600@student.miun.se}\\
+    \newline
+    \textbf{Degree program:} Master of Science in Computer Engineering, 
+        \newline   Master by Research, 120 ECTS \\ 
+    \textbf{Main field of study:} Computer Engineering\\
+    \textbf{Semester, year:} Summer, 2019 \\
+    \textbf{Release date of this thesis report:} \today
+    
+    
+    \clearpage
+    
+    %\input{text/docversions.tex}
+    %\clearpage
+    
+	%\include{abstract-sv}
+	%\cleardoublepage
+	\input{text/abstract-en.tex}
+	\clearpage
+	
+	\input{text/acknowledgment.tex}
+	\clearpage
+	%\cleardoublepage
+	%\include{preface}
+	%\cleardoublepage
+	\tableofcontents
+	\clearpage
+	
+	\input{text/publications.tex}
+	
+	\input{text/terminology.tex}
+	
+	%\cleardoublepage
+	%\listoffigures
+	% \cleardoublepage
+	% \listoftables
+	%\cleardoublepage
+	%\lstlistoflistings
+	%\printnomenclature
+	
+	\mainmatter
+	
+	\input{text/introduction.tex}
+	\input{text/theory.tex}
+    \input{text/methodology.tex}
+    \input{text/prox_based_auth.tex}
+    \input{text/study_design.tex}
+    \input{text/imp_prox_based.tex}
+%    \input{text/lightweight_protocols.tex}
+    \input{text/design_lighweight_protocol.tex}
+	\input{text/impl_lightweight_protocol.tex}
+	%\input{text/evaluation.tex}
+	\input{text/results.tex}
+	%\input{text/discussion.tex}
+	\input{text/conclusion.tex}
+
+
+    \printbibliography
+    \clearpage
+    \listoffigures
+    \clearpage
+    \listoftables
+    %\clearpage
+    %\lstlistoflistings
+\iffalse
+	\appendix
+
+    \chapter{Included Publications}
+    This appendix chapter contains the following publication of the author in full-text form in the outlined order:
+
+    \begin{enumerate}[label=\Roman*]
+        \item Nico Ferrari, Teklay Gebremichael, Ulf Jennehag, and Mikael Gidlund{\"o}m. "Lightweight Group-Key Establishment Protocol for IoT Devices: Implementation and Performance Analyses". In: \textit{2018 Fifth International Conference on Internet of Things: Systems, Management and Security, IEEE, 2018}
+    \end{enumerate}
+	
+	
+	\includepdf[pages=-]{docs/Group_Exchange_Key_Protocol.pdf}
+\fi
+
+	
+
+	\backmatter
+	% index etc.
+\end{document}
